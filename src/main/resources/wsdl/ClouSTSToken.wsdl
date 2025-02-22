@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://interfaces.ppm.esp.clou.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ClouSTSTokenService" targetNamespace="http://interfaces.ppm.esp.clou.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://interfaces.ppm.esp.clou.com/" elementFormDefault="unqualified" targetNamespace="http://interfaces.ppm.esp.clou.com/" version="1.0">
+
+  <xs:element name="Encrypt_CreditToken" type="tns:Encrypt_CreditToken"/>
+
+  <xs:element name="Encrypt_CreditTokenResponse" type="tns:Encrypt_CreditTokenResponse"/>
+
+  <xs:element name="Encrypt_KeyChangeToken" type="tns:Encrypt_KeyChangeToken"/>
+
+  <xs:element name="Encrypt_KeyChangeTokenResponse" type="tns:Encrypt_KeyChangeTokenResponse"/>
+
+  <xs:element name="EngineeringToken" type="tns:EngineeringToken"/>
+
+  <xs:element name="EngineeringTokenResponse" type="tns:EngineeringTokenResponse"/>
+
+  <xs:element name="Response_SecurityModule_FindModeIDs" type="tns:responseSecurityModuleFindModeIDs"/>
+
+  <xs:element name="SecurityModule_CreditBalance_Get" type="tns:SecurityModule_CreditBalance_Get"/>
+
+  <xs:element name="SecurityModule_CreditBalance_GetResponse" type="tns:SecurityModule_CreditBalance_GetResponse"/>
+
+  <xs:element name="SecurityModule_CreditBalance_Recharge" type="tns:SecurityModule_CreditBalance_Recharge"/>
+
+  <xs:element name="SecurityModule_CreditBalance_RechargeResponse" type="tns:SecurityModule_CreditBalance_RechargeResponse"/>
+
+  <xs:element name="SecurityModule_FindModeIDs" type="tns:SecurityModule_FindModeIDs"/>
+
+  <xs:element name="SecurityModule_FindModeIDsResponse" type="tns:SecurityModule_FindModeIDsResponse"/>
+
+  <xs:element name="SecurityModule_IsAvailable" type="tns:SecurityModule_IsAvailable"/>
+
+  <xs:element name="SecurityModule_IsAvailableResponse" type="tns:SecurityModule_IsAvailableResponse"/>
+
+  <xs:element name="SecurityModule_LoadKeys" type="tns:SecurityModule_LoadKeys"/>
+
+  <xs:element name="SecurityModule_LoadKeysResponse" type="tns:SecurityModule_LoadKeysResponse"/>
+
+  <xs:element name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+
+  <xs:element name="request_SecurityModule_CreditBalance" type="tns:requestSecurityModuleCreditBalance"/>
+
+  <xs:element name="request_SecurityModule_CreditBalance_Recharge" type="tns:requestSecurityModuleCreditBalanceRecharge"/>
+
+  <xs:element name="request_SecurityModule_Encrypt_CreditToken" type="tns:requestSecurityModuleEncryptCreditToken"/>
+
+  <xs:element name="request_SecurityModule_Encrypt_KeyChangeToken" type="tns:requestSecurityModuleEncryptKeyChangeToken"/>
+
+  <xs:element name="request_SecurityModule_EngineeringToken" type="tns:requestSecurityModuleEngineeringToken"/>
+
+  <xs:element name="request_SecurityModule_IsAvailable" type="tns:requestSecurityModuleIsAvailable"/>
+
+  <xs:element name="request_SecurityModule_LoadKeys" type="tns:requestSecurityModuleLoadKeys"/>
+
+  <xs:element name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+
+  <xs:element name="response_SecurityModule_CreditBalance" type="tns:responseSecurityModuleCreditBalance"/>
+
+  <xs:element name="response_SecurityModule_CreditBalance_Recharge" type="tns:responseSecurityModuleCreditBalanceRecharge"/>
+
+  <xs:element name="response_SecurityModule_Encrypt_CreditToken" type="tns:responseSecurityModuleEncryptCreditToken"/>
+
+  <xs:element name="response_SecurityModule_Encrypt_KeyChangeToken" type="tns:responseSecurityModuleEncryptKeyChangeToken"/>
+
+  <xs:element name="response_SecurityModule_EngineeringToken" type="tns:responseSecurityModuleEngineeringToken"/>
+
+  <xs:element name="response_SecurityModule_IsAvailable" type="tns:responseSecurityModuleIsAvailable"/>
+
+  <xs:element name="response_SecurityModule_LoadKeys" type="tns:responseSecurityModuleLoadKeys"/>
+
+  <xs:complexType name="SecurityModule_CreditBalance_Recharge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_CreditBalance_Recharge" type="tns:requestSecurityModuleCreditBalanceRecharge"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleCreditBalanceRecharge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element name="amount" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestAuthTokenStsTokenService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_CreditBalance_RechargeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleCreditBalanceRecharge"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleCreditBalanceRecharge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseAuthTokenStsTokenService">
+    <xs:sequence>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_LoadKeys">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_LoadKeys" type="tns:requestSecurityModuleLoadKeys"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleLoadKeys">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="keys" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_LoadKeysResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleLoadKeys"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleLoadKeys">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_FindModeIDs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_FindModeIDsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleFindModeIDs"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleFindModeIDs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="device_Identification_Number" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="commPort" nillable="true" type="xs:string"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Encrypt_KeyChangeToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_Encrypt_KeyChangeToken" type="tns:requestSecurityModuleEncryptKeyChangeToken"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleEncryptKeyChangeToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element minOccurs="0" name="meterAddress" type="xs:string"/>
+      <xs:element name="keyRegisterNumber_current" type="xs:int"/>
+      <xs:element name="keyRegisterNumber_New" type="xs:int"/>
+      <xs:element name="SupplyGroupCode_current" type="xs:int"/>
+      <xs:element name="SupplyGroupCode_New" type="xs:int"/>
+      <xs:element name="keyRevisionNumber_current" type="xs:int"/>
+      <xs:element name="keyRevisionNumber_New" type="xs:int"/>
+      <xs:element name="KeyExpiryNumber_current" type="xs:int"/>
+      <xs:element name="KeyExpiryNumber_New" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Encrypt_KeyChangeTokenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleEncryptKeyChangeToken"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleEncryptKeyChangeToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Token" nillable="true" type="xs:string"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EngineeringToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_EngineeringToken" type="tns:requestSecurityModuleEngineeringToken"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleEngineeringToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element minOccurs="0" name="meterAddress" type="xs:string"/>
+      <xs:element name="keyRegisterNumber" type="xs:int"/>
+      <xs:element name="SupplyGroupCode" type="xs:int"/>
+      <xs:element name="keyRevisionNumber" type="xs:int"/>
+      <xs:element name="KeyExpiryNumber" type="xs:int"/>
+      <xs:element name="ManagementFunction" type="xs:byte"/>
+      <xs:element name="TransferAmount" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EngineeringTokenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleEngineeringToken"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleEngineeringToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element minOccurs="0" name="Token" type="xs:string"/>
+      <xs:element name="ManagementFunction" type="xs:int"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_CreditBalance_Get">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_CreditBalance" type="tns:requestSecurityModuleCreditBalance"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleCreditBalance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_CreditBalance_GetResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleCreditBalance"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleCreditBalance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element minOccurs="0" name="CreditBalance" type="xs:double"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Encrypt_CreditToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_Encrypt_CreditToken" type="tns:requestSecurityModuleEncryptCreditToken"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleEncryptCreditToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element minOccurs="0" name="meterAddress" type="xs:string"/>
+      <xs:element name="keyRegisterNumber" type="xs:int"/>
+      <xs:element name="SupplyGroupCode" type="xs:int"/>
+      <xs:element name="keyRevisionNumber" type="xs:int"/>
+      <xs:element name="KeyExpiryNumber" type="xs:int"/>
+      <xs:element name="amount" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Encrypt_CreditTokenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleEncryptCreditToken"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleEncryptCreditToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element minOccurs="0" name="Token" type="xs:string"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_IsAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Request_SecurityModule_IsAvailable" type="tns:requestSecurityModuleIsAvailable"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestSecurityModuleIsAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request_AuthToken_StsTokenService" type="tns:requestAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecurityModule_IsAvailableResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseSecurityModuleIsAvailable"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseSecurityModuleIsAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="response_AuthToken_StsTokenService" type="tns:responseAuthTokenStsTokenService"/>
+      <xs:element minOccurs="0" name="device_Identification_Number" type="xs:string"/>
+      <xs:element name="IsAvailable" type="xs:boolean"/>
+      <xs:element name="responseStatus" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseCodeDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Encrypt_KeyChangeTokenResponse">
+    <wsdl:part element="tns:Encrypt_KeyChangeTokenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Encrypt_CreditToken">
+    <wsdl:part element="tns:Encrypt_CreditToken" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EngineeringTokenResponse">
+    <wsdl:part element="tns:EngineeringTokenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_CreditBalance_GetResponse">
+    <wsdl:part element="tns:SecurityModule_CreditBalance_GetResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_IsAvailable">
+    <wsdl:part element="tns:SecurityModule_IsAvailable" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_CreditBalance_Recharge">
+    <wsdl:part element="tns:SecurityModule_CreditBalance_Recharge" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_CreditBalance_Get">
+    <wsdl:part element="tns:SecurityModule_CreditBalance_Get" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_IsAvailableResponse">
+    <wsdl:part element="tns:SecurityModule_IsAvailableResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Encrypt_CreditTokenResponse">
+    <wsdl:part element="tns:Encrypt_CreditTokenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_LoadKeys">
+    <wsdl:part element="tns:SecurityModule_LoadKeys" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Encrypt_KeyChangeToken">
+    <wsdl:part element="tns:Encrypt_KeyChangeToken" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_LoadKeysResponse">
+    <wsdl:part element="tns:SecurityModule_LoadKeysResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EngineeringToken">
+    <wsdl:part element="tns:EngineeringToken" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_CreditBalance_RechargeResponse">
+    <wsdl:part element="tns:SecurityModule_CreditBalance_RechargeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_FindModeIDs">
+    <wsdl:part element="tns:SecurityModule_FindModeIDs" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityModule_FindModeIDsResponse">
+    <wsdl:part element="tns:SecurityModule_FindModeIDsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ClouSTSToken">
+    <wsdl:operation name="SecurityModule_CreditBalance_Recharge">
+      <wsdl:input message="tns:SecurityModule_CreditBalance_Recharge" name="SecurityModule_CreditBalance_Recharge">
+    </wsdl:input>
+      <wsdl:output message="tns:SecurityModule_CreditBalance_RechargeResponse" name="SecurityModule_CreditBalance_RechargeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_LoadKeys">
+      <wsdl:input message="tns:SecurityModule_LoadKeys" name="SecurityModule_LoadKeys">
+    </wsdl:input>
+      <wsdl:output message="tns:SecurityModule_LoadKeysResponse" name="SecurityModule_LoadKeysResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_FindModeIDs">
+      <wsdl:input message="tns:SecurityModule_FindModeIDs" name="SecurityModule_FindModeIDs">
+    </wsdl:input>
+      <wsdl:output message="tns:SecurityModule_FindModeIDsResponse" name="SecurityModule_FindModeIDsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Encrypt_KeyChangeToken">
+      <wsdl:input message="tns:Encrypt_KeyChangeToken" name="Encrypt_KeyChangeToken">
+    </wsdl:input>
+      <wsdl:output message="tns:Encrypt_KeyChangeTokenResponse" name="Encrypt_KeyChangeTokenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EngineeringToken">
+      <wsdl:input message="tns:EngineeringToken" name="EngineeringToken">
+    </wsdl:input>
+      <wsdl:output message="tns:EngineeringTokenResponse" name="EngineeringTokenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_CreditBalance_Get">
+      <wsdl:input message="tns:SecurityModule_CreditBalance_Get" name="SecurityModule_CreditBalance_Get">
+    </wsdl:input>
+      <wsdl:output message="tns:SecurityModule_CreditBalance_GetResponse" name="SecurityModule_CreditBalance_GetResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Encrypt_CreditToken">
+      <wsdl:input message="tns:Encrypt_CreditToken" name="Encrypt_CreditToken">
+    </wsdl:input>
+      <wsdl:output message="tns:Encrypt_CreditTokenResponse" name="Encrypt_CreditTokenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_IsAvailable">
+      <wsdl:input message="tns:SecurityModule_IsAvailable" name="SecurityModule_IsAvailable">
+    </wsdl:input>
+      <wsdl:output message="tns:SecurityModule_IsAvailableResponse" name="SecurityModule_IsAvailableResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClouSTSTokenServiceSoapBinding" type="tns:ClouSTSToken">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SecurityModule_CreditBalance_Recharge">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/SecurityModule_CreditBalance_Recharge" style="document"/>
+      <wsdl:input name="SecurityModule_CreditBalance_Recharge">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SecurityModule_CreditBalance_RechargeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_FindModeIDs">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/SecurityModule_FindModeIDs" style="document"/>
+      <wsdl:input name="SecurityModule_FindModeIDs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SecurityModule_FindModeIDsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_LoadKeys">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/SecurityModule_LoadKeys" style="document"/>
+      <wsdl:input name="SecurityModule_LoadKeys">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SecurityModule_LoadKeysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Encrypt_KeyChangeToken">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/Encrypt_KeyChangeToken" style="document"/>
+      <wsdl:input name="Encrypt_KeyChangeToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Encrypt_KeyChangeTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EngineeringToken">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/EngineeringToken" style="document"/>
+      <wsdl:input name="EngineeringToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="EngineeringTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_CreditBalance_Get">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/SecurityModule_CreditBalance_Get" style="document"/>
+      <wsdl:input name="SecurityModule_CreditBalance_Get">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SecurityModule_CreditBalance_GetResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Encrypt_CreditToken">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/Encrypt_CreditToken" style="document"/>
+      <wsdl:input name="Encrypt_CreditToken">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Encrypt_CreditTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurityModule_IsAvailable">
+      <soap:operation soapAction="http://api.ppm.esp.clou.com/SecurityModule_IsAvailable" style="document"/>
+      <wsdl:input name="SecurityModule_IsAvailable">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SecurityModule_IsAvailableResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClouSTSTokenService">
+    <wsdl:port binding="tns:ClouSTSTokenServiceSoapBinding" name="ClouSTSTokenPort">
+      <soap:address location="http://58.251.74.100:9110/ClouESP_PPM_STS_Token_WebService/ClouSTSToken"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
